@@ -1,5 +1,5 @@
 obj=in_param.o print_help.o
-dd: main.c $(obj)
+example: main.c $(obj)
 	gcc $^ -o $@
 
 clean:
