@@ -10,7 +10,7 @@ int in_param(int argc, char** argv)
 	if(argc<=1)
 	{
 		printf("\n\t%s requires more parameters.\n"
-			"\tSee '--help' for more information.");
+			"\tSee '--help' for more information.\n");
 	}
 	else if(!strcmp(argv[1], "--help"))
 	{
@@ -23,7 +23,7 @@ int in_param(int argc, char** argv)
 	else
 	{
 		printf("\n\tUnknown parameter.\n\t"
-			"See '--help' for more information.");
+			"See '--help' for more information.\n");
 	}
 	return 0;
 }
