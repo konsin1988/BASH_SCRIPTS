@@ -1,0 +1,103 @@
+#!/bin/bash
+
+if [[ -z "$1" ]] ; then
+	echo "
+	$0 requires two parameters.
+	--help for more information.
+	Exit.
+	"
+	exit 
+elif [[ "$1" == "--help" ]] ; then
+	echo "
+	Syntax:
+		$0 'dir name' 'output file's name'
+	
+		Script create folder 'dir name',
+		where is created Makefile, name 
+		of -o file - 'output file name'.
+	" 
+elif [[ -z "$2" ]] ; then
+	echo "
+	$0 requires two parameters.
+ 	'--help' for more information.
+	Exit.
+	"	
+elif ! [ -d "$1" ] ; then
+	mkdir $1
+	cd ./$1
+
+	### Makefile ###
+	echo "obj=in_param.o print_help.o
+$2: main.c \$(obj)
+	gcc $^ -o \$@
+
+clean:
+	rm *.o
+	" >> Makefile
+
+	### main.c ###
+	echo "#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
+
+#include \"in_param.h\"
+
+int main(int argc, char** argv)
+{
+	return 0;
+}
+	"	>> main.c
+
+	### in_param.c ###
+	echo "#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+#include \"print_help.h\"
+
+int in_param(int argc, char** argv)
+{
+	if(argc<=1)
+	{
+		printf(\"\\n\\t%s requires more parameters.\\n\"
+			\"\\tSee '--help' for more information.\");
+	}
+	else if(!strcmp(argv[1], \"--help\"))
+	{
+		print_help(argv[0]);
+	}
+	else if(!strcmp(argv[1], ""))
+	{
+			return 1;
+	}
+	else
+	{
+		printf(\"\\n\\tUnknown parameter.\\n\\t\"
+			\"See '--help' for more information.\");
+	}
+	return 0;
+}
+" >> in_param.c
+
+	### print_help.c ###
+	echo "#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
+
+int print_help(char* arg)
+{
+	printf(\"\\nSyntax:\\n\\t'--func1' : \"
+		\"\\n\\t\\tfunc2 : \");
+}
+" >> print_help.c
+
+	xfce4-terminal -x sh -c "nano README.txt; bash"
+       	vi main.c	
+	$SHELL	
+else
+	echo "
+	Dir '$1' already exists!
+	Exit
+"
+fi	
