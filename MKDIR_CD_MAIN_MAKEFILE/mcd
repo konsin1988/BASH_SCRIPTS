@@ -48,6 +48,14 @@ int main(int argc, char** argv)
 }
 	"	>> main.c
 
+	### in_param.h ###
+	echo "#pragma once
+
+#include <stddef.h>
+
+int in_param(int argc, char** argv);
+" >> in_param.h 
+
 	### in_param.c ###
 	echo "#include <stdio.h>
 #include <string.h>
@@ -80,12 +88,20 @@ int in_param(int argc, char** argv)
 }
 " >> in_param.c
 
+	### print_help.h ###
+	echo "#pragma once
+
+#include <stddef.h>
+
+void print_help(char** argv);
+" >> print_help.h
+	
 	### print_help.c ###
 	echo "#include <stdio.h>
 #include <stddef.h>
 #include <string.h>
 
-int print_help(char* arg)
+void print_help(char** arg)
 {
 	printf(\"\\nSyntax:\\n\\t'--func1' : \"
 		\"\\n\\t\\tfunc2 : \\n\");
