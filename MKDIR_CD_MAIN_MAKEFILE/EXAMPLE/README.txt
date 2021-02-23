@@ -1,1 +1,1 @@
-Some discription.
+Some discriptions.

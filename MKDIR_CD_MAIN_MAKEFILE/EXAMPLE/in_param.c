@@ -9,12 +9,13 @@ int in_param(int argc, char** argv)
 	}
 	else if(!strcmp(argv[1], "--help"))
 	{
-		print_help(argv[0]);
+		print_help(argv);
 	}
-	else if(!strcmp(argv[1], ))
+	/*else if(!strcmp(argv[1], ))
 	{
 			return 1;
 	}
+	*/
 	else
 	{
 		printf("\n\tUnknown parameter.\n\t"
