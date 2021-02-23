@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stddef.h>
-
-#include "print_help.h"
+#include "std.h"
 
 int in_param(int argc, char** argv)
 {

@@ -1,5 +1,6 @@
 /* The script creates a directory (if it doesn't exist), 
-/* creates a main.c, in_param.c, print_help.c, README.txt 
+/* creates a main.c, in_param.c, print_help.c, README.txt,
+/* std.c, std.h, name.c, name.h (name - name of the program) 
 /* and a Makefile in it with some initial code. 
 /* Then it opens a second terminal window for working 
 /* in this derrictory, open README.txt for starting to work 

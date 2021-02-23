@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stddef.h>
-#include <string.h>
-
-#include "in_param.h"
+#include "std.h"
 
 int main(int argc, char** argv)
 {
