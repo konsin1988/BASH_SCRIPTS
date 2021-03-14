@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ ( -z "$1" ) || !( -z "$2" ) ]] ; then
+	echo "
+	$0 requires one argument - name of a file to write.
+	"
+	exit
+fi
+xclip -o >> $1
+echo "
+" >> $1

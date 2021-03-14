@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [[ -z "$1" ]] ; then
+	echo "
+	$0 requires one parameter: name of the file to open.
+	Exit.
+	"
+	exit
+else
+	xdg-open $1
+	exit
+fi
+
+
